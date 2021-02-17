@@ -1132,7 +1132,7 @@ const defaults = {
                       function (cb) {
                         if (rconf.categoriesNames && __imported_original_data__._name) {
                           const convertedName = Controller.convert(__imported_original_data__._name, 'category:name', category.cid);
-                          db.setObjectField(`category:${category.cid}`, 'name', Controller.convert(__imported_original_data__._name), () => {
+                          db.setObjectField(`category:${category.cid}`, 'name', convertedName, () => {
                             if (err) return cb(err);
                             db.setObjectField(`category:${category.cid}`, 'slug', `${category.cid}/${utils.slugify(convertedName)}`, cb);
                           });
