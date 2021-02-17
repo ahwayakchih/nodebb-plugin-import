@@ -347,7 +347,7 @@ const defaults = {
     let fn; const
       noop = function (s) { return s; };
     try {
-      fn = Function.apply(global, ['content, encoding, url', `${js || ''}\nreturn content;`]);
+      fn = Function.apply(global, ['content, encoding, url, type, id', `${js || ''}\nreturn content;`]);
     } catch (e) {
       console.warn(`${js}\nhas invalid javascript, ignoring...`, e);
       fn = noop;
@@ -378,7 +378,7 @@ const defaults = {
     Controller.convert = function (s, type, id) {
       s = s || '';
       try {
-        s = parseAfter(parseMain(parseBefore(s, encoding, url)), encoding, url);
+        s = parseAfter(parseMain(parseBefore(s, encoding, url, type, id)), encoding, url, type, id);
       } catch (e) {
         console.warn(`${type} with id=\`${id}\` and content=\`${s}\`, threw an error during convert, so it was skipped, error= \`${e}\``);
       }

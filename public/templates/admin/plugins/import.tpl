@@ -299,13 +299,14 @@
             <p class="help-block">
                 For advanced users only. This function will run <b>before</b> the main convert function, use it wisely. If it has invalid syntax, it will be ignored.
                 <br>The first argument is the string content, the second is the <a target="_blank" href="https://github.com/andris9/encoding">encoding</a> library in case you need to convert encodings.
-                 The third argument is <a href="https://nodejs.org/api/url.html" target="_blank">url</a>, the nodejs core module.
+                The third argument is <a href="https://nodejs.org/api/url.html" target="_blank">url</a>, the nodejs core module.
+                The fourth and the fifth arguments are "type" of currently parsed object and its "id".
             </p>
         </div>
         <div class="content-convert-parse-before-container hidden">
             <p class="help-block">
                 url is the Node.js <a href="https://nodejs.org/api/url.html" target="_blank">URL core module</a><br>
-                <code>function parseBefore(content, encoding, url){</code>
+                <code>function parseBefore(content, encoding, url, type, id){</code>
             </p>
             <textarea class="form-control" id="content-convert-parse-before" name="content-convert-parse-before" placeholder="content = encoding.convert( content.replace(/orange/g, 'apple'), /* to: */ 'utf8' , /* from: */ 'latin1' ).toString(); "></textarea>
             <p class="help-block">
@@ -341,11 +342,12 @@
                 For advanced users only. This function will run <b>after</b> the main convert function, use it wisely. If it has invalid syntax, it will be ignored.
                 <br>The first argument is the string content, the second is the <a target="_blank" href="https://github.com/andris9/encoding">encoding</a> library in case you need to convert encodings.
                 The third argument is <a href="https://nodejs.org/api/url.html" target="_blank">url</a>, the nodejs core module.
+                The fourth and the fifth arguments are "type" of currently parsed object and its "id".
             </p>
         </div>
         <div class="content-convert-parse-after-container hidden">
             <p class="help-block">
-                <code>function parseAfter(content, encoding, url) {</code>
+                <code>function parseAfter(content, encoding, url, type, id) {</code>
             </p>
             <textarea class="form-control" id="content-convert-parse-after" name="content-convert-parse-after" placeholder="content = content.replace(/apple/g, 'kitkat'); "></textarea>
             <p class="help-block">
